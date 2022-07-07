@@ -45,6 +45,22 @@ function tambahguru($data){
     return mysqli_affected_rows($conn);
 }
 
+function tambahadmin($data){
+    global $conn;
+    $nama_admin = htmlspecialchars($data["nama_admin"]);
+    $alamat_admin = htmlspecialchars($data["alamat_admin"]);
+    $no_hp = htmlspecialchars($data["no_hp"]);
+
+    $query = "INSERT INTO tb_admin
+    VALUES
+    ('', '$nama_admin', '$alamat_admin', '$no_hp');
+    ";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
 
 function hapus($id) {
     global $conn;
@@ -80,4 +96,42 @@ function ubah($data) {
 
    return mysqli_affected_rows($conn);
 }
+
+function ubahguru($data){
+    global $conn;
+    $id = $data["id"];
+    $nip_nuptk = htmlspecialchars($data["nip_nuptk"]);
+    $nama = htmlspecialchars($data["nama"]);
+    $alamat = htmlspecialchars($data["alamat"]);
+    $bidang_study = htmlspecialchars($data["bidang_study"]);
+
+    $query = "UPDATE tb_guru SET
+                nip_nuptk = '$nip_nuptk',
+                nama = '$nama',
+                alamat = '$alamat',
+                bidang_study = '$bidang_study'
+                WHERE id = $id
+                ";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function ubahadmin($data){
+    global $conn;
+    $id = $data["id"];
+    $nama_admin = htmlspecialchars($data["nama_admin"]);
+    $alamat_admin = htmlspecialchars($data["alamat_admin"]);
+    $no_hp = htmlspecialchars($data["no_hp"]);
+
+    $query = "UPDATE tb_admin SET
+                nama_admin = '$nama_admin',
+                alamat_admin = '$alamat_admin',
+                no_hp = '$no_hp'
+                WHERE id = '$id'
+                ";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+    
+}
+
 ?>

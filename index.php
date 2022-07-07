@@ -20,6 +20,9 @@ $siswa = query("SELECT * FROM tb_siswa");
   <div class="nav-item">
     <a class="nav-link" href="guru.php">Guru</a>
   </div>
+  <div class="nav-item">
+    <a class="nav-link" href="admin.php">Admin</a>
+  </div>
 </nav>
 <h4>Data siswa/siswi smkn 1 beringin</h4>
 <a href="tambah_siswa.php">Tambah data siswa</a>

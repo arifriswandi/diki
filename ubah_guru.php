@@ -6,7 +6,21 @@ $id = $_GET["id"];
 $guru = query("SELECT * FROM tb_guru WHERE id = $id")[0];
 
 if(isset($_POST["submit"])){
-    
+    if(ubahguru($_POST) > 0){
+      echo "
+        <script>
+          alert('data berhasil diubah');
+          document.location.href = 'guru.php';
+        </script>
+      ";
+    }else{
+      echo "
+        <script>
+          alert('data gagal diubah');
+          document.location.href = 'guru.php';
+        </script>
+      ";
+    }
 }
 
 
@@ -30,6 +44,7 @@ if(isset($_POST["submit"])){
   </div>
 </nav>
     <form action="" method="post">
+        <input type="hidden" name="id" id="id" value="<?= $guru["id"]; ?>" required><br>
         <label for="nip">Nip/Nuptk</label><br>
         <input type="text" name="nip_nuptk" id="nip" value = "<?= $guru["nip_nuptk"]; ?>"><br>
         <label for="nama">Nama</label><br>
@@ -38,7 +53,7 @@ if(isset($_POST["submit"])){
         <input type="text" name="alamat" id="alamat" value = "<?= $guru["alamat"]; ?>"><br>
         <label for="bidang_study">Bidang Study</label><br>
         <input type="text" name="bidang_study" id="bidang_study" value = "<?= $guru["bidang_study"]; ?>"><br>
-        <button name="submit"></button>
+        <button name="submit">Ubah</button>
 
     </form>
 </body>

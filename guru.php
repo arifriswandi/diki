@@ -20,6 +20,9 @@ $guru = query("SELECT * FROM tb_guru");
   <div class="nav-item">
     <a class="nav-link" href="guru.php">Guru</a>
   </div>
+  <div class="nav-item">
+    <a class="nav-link" href="admin.php">Admin</a>
+  </div>
 </nav>
 
 <h4>Data guru smkn 1 beringin</h4>
